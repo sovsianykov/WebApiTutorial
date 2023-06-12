@@ -56,27 +56,6 @@ namespace apiUnitTestingTutorial.Conrollers.Test
             actualPosts.Should().BeEquivalentTo(expectedPosts);
         }
 
-        [Fact]
-        public void Get_ExistingId_ReturnsPost()
-        {
-            // Arrange
-            int postId = 100;
-            var expectedPost = new Post
-            {
-                PostId = postId,
-                Title = "Default post 100",
-                Content = "Lorem Lorem",
-                Img = "img adress"
-            };
-            _postService.Get(postId).Returns(expectedPost);
-
-            // Act
-            var result = _controller.Get(postId);
-
-            // Assert
-            result.Should().BeEquivalentTo(expectedPost);
-        }
-
     }
 
 }

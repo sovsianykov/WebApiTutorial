@@ -29,8 +29,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Conrollers.Test\" />
+    <None Remove="Services.Tests\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Conrollers.Test\" />
+    <Folder Include="Services.Tests\" />
   </ItemGroup>
 </Project>
