@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1705.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "apiTutorial", "apiTutorial\apiTutorial.csproj", "{92DB122D-288C-4509-ACD1-5AC76410994A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A241A834-F1B4-42F4-A17A-BC518B310203}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "apiUnitTestingTutorial", "apiUnitTestingTutorial\apiUnitTestingTutorial.csproj", "{19A5C413-2F7D-45DE-9698-E3A086C4B3EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92DB122D-288C-4509-ACD1-5AC76410994A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92DB122D-288C-4509-ACD1-5AC76410994A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92DB122D-288C-4509-ACD1-5AC76410994A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92DB122D-288C-4509-ACD1-5AC76410994A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19A5C413-2F7D-45DE-9698-E3A086C4B3EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A5C413-2F7D-45DE-9698-E3A086C4B3EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A5C413-2F7D-45DE-9698-E3A086C4B3EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A5C413-2F7D-45DE-9698-E3A086C4B3EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {841D4750-5AB0-498C-B324-8BABD7323A4E}
+	EndGlobalSection
+EndGlobal
