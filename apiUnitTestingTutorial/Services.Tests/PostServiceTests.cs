@@ -1,13 +1,13 @@
 ﻿using Xunit;
 using NSubstitute;
-using apiTutorial.Interfaces;
 using FluentAssertions;
-using apiTutorial.Models;
-using apiTutorial.Services;
+using Blog.Web.Models;
+using Blog.Application.Services;
 using System.Collections.Generic;
 using System.Linq;
+using Blog.DTOs;
 
-namespace apiTutorial.Tests
+namespace Blog.Tests.Services.Tests
 {
     public class PostServiceTests
     {
@@ -15,16 +15,16 @@ namespace apiTutorial.Tests
         public void GetAll_ShouldReturnAllPosts()
         {
             // Arrange
-            var expectedPosts = new List<Post>
+            var expectedPosts = new List<PostDto>
             {
-                 new Post
+                 new PostDto
             {
                     PostId = 1,
                     Title = "Post 1",
                     Content = "Lorem Lorem",
                     Img = "img adress"
             },
-            new Post
+            new PostDto
             {
 
                     PostId = 2,
@@ -49,7 +49,7 @@ namespace apiTutorial.Tests
         {
             // Arrange
             var postId = 3;
-            var expectedPost = new Post
+            var expectedPost = new PostDto
             {
 
                 PostId = postId,
@@ -73,7 +73,7 @@ namespace apiTutorial.Tests
             // Arrange
             var postId = 99;
             var postService = Substitute.For<IPostService>();
-            postService.Get(postId).Returns((Post)null);
+            postService.Get(postId).Returns((PostDto)null);
             // Act
             var result = postService.Get(postId);
 
@@ -86,7 +86,7 @@ namespace apiTutorial.Tests
         public void Add_ValidPost_PostAddedSuccessfully()
         {
             // Arrange
-            var post = new Post
+            var post = new PostDto
             {
                 PostId = 1,
                 Title = "New Post 1",
@@ -109,7 +109,7 @@ namespace apiTutorial.Tests
             // Arrange
             var postService = new PostService();
             var initialCount = postService.GetAll().Count;
-            var newPost = new Post
+            var newPost = new PostDto
             {
                 PostId = 3,
                 Title = "New Post",
@@ -146,7 +146,7 @@ namespace apiTutorial.Tests
             // Arrange
             var postId = 101;
             var postService = new PostService();
-            var updatedPost = new Post
+            var updatedPost = new PostDto
             {
                 PostId = postId,
                 Title = "Updated Post",

@@ -1,25 +1,24 @@
 ﻿using System;
-using apiTutorial.Interfaces;
-using apiTutorial.Models;
-namespace apiTutorial.Services
+using Blog.DTOs;
+namespace Blog.Application.Services
 {
     public class PostService : IPostService
     {
-        private readonly List<Post> _posts;
+        private readonly List<PostDto> _posts;
         private int _nextId;
 
         public PostService()
         {
-            _posts = new List<Post>
+            _posts = new List<PostDto>
         {
-            new Post
+            new PostDto
             {
                 PostId = 100,
                 Title = "Default post 100",
                 Content = "Lorem Lorem",
                 Img = "img address"
             },
-            new Post
+            new PostDto
             {
                 PostId = 101,
                 Title = "Default post 101",
@@ -30,11 +29,11 @@ namespace apiTutorial.Services
             _nextId = 102;
         }
 
-        public List<Post> GetAll() => _posts;
+        public List<PostDto> GetAll() => _posts;
 
-        public Post Get(int id) => _posts.FirstOrDefault(p => p.PostId == id);
+        public PostDto Get(int id) => _posts.FirstOrDefault(p => p.PostId == id);
 
-        public void Add(Post post)
+        public void Add(PostDto post)
         {
             post.PostId = _nextId++;
             _posts.Add(post);
@@ -49,7 +48,7 @@ namespace apiTutorial.Services
             _posts.Remove(post);
         }
 
-        public void Update(Post post)
+        public void Update(PostDto post)
         {
             var existingPost = Get(post.PostId);
             if (existingPost == null)

@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using apiTutorial.Services;
-using apiTutorial.Models;
-using apiTutorial.Interfaces;
-
-namespace apiTutorial.Controllers;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Blog.Application.Services;
+using Blog.Web.Models;
+using Blog.DTOs;
+namespace Blog.Web.Controllers;
 
 [ApiController]
 [Route("[controller]")]
@@ -17,11 +17,11 @@ public class PostsController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<List<Post>> GetAll() =>
+    public ActionResult<List<PostDto>> GetAll() =>
         _postService.GetAll();
 
     [HttpGet("{id}")]
-    public ActionResult<Post> Get(int id)
+    public ActionResult<PostDto> Get(int id)
     {
         var post = _postService.Get(id);
 
@@ -32,14 +32,14 @@ public class PostsController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Create(Post post)
+    public IActionResult Create(PostDto post)
     {
         _postService.Add(post);
         return CreatedAtAction(nameof(Get), new { id = post.PostId }, post);
     }
 
     [HttpPut("{id}")]
-    public IActionResult Update(int id, Post post)
+    public IActionResult Update(int id, PostDto post)
     {
         if (id != post.PostId)
             return BadRequest();

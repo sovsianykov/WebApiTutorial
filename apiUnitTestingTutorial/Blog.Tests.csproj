@@ -26,13 +26,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\apiTutorial\apiTutorial.csproj" />
+    <ProjectReference Include="..\apiTutorial\Blog.Web.csproj" />
+    <ProjectReference Include="..\Blog.Application\Blog.Application.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Conrollers.Test\" />
     <None Remove="Services.Tests\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Conrollers.Test\" />
     <Folder Include="Services.Tests\" />
   </ItemGroup>
 </Project>

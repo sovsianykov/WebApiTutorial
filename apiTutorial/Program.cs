@@ -1,11 +1,11 @@
 ﻿using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using apiTutorial.Controllers;
-using apiTutorial.Interfaces;
-using apiTutorial.Services;
+using Blog.Web.Controllers;
+using Blog.Application.Services;
+using AutoMapper;
 
-namespace apiTutorial;
+namespace Blog.Web;
 
 public class Program
 {
@@ -18,10 +18,17 @@ public class Program
        Host.CreateDefaultBuilder(args)
            .ConfigureWebHostDefaults(webBuilder =>
            {
-               webBuilder.ConfigureServices(services =>
+               webBuilder.ConfigureServices((IServiceCollection services) =>
                {
                    services.AddSingleton<IPostService, PostService>();
                    services.AddControllers();
+                   var mappingConfig = new MapperConfiguration(mc =>
+                   {
+                       mc.AddProfile(new MappingProfile());
+                   });
+
+                   IMapper mapper = mappingConfig.CreateMapper();
+                   services.AddSingleton(mapper);
                    services.AddSwaggerGen(c =>
                    {
                        c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyFirstApi", Version = "v1" });
