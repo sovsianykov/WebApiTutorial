@@ -1,42 +1,28 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Blog.DTOs;
+using Blog.Infra.BlogDbContext;
+
 namespace Blog.Application.Services
 {
     public class PostService : IPostService
     {
-        private readonly List<PostDto> _posts;
-        private int _nextId;
+        private readonly BlogDbContext _dbContext;
 
-        public PostService()
+        public PostService(BlogDbContext dbContext)
         {
-            _posts = new List<PostDto>
-        {
-            new PostDto
-            {
-                PostId = 100,
-                Title = "Default post 100",
-                Content = "Lorem Lorem",
-                Img = "img address"
-            },
-            new PostDto
-            {
-                PostId = 101,
-                Title = "Default post 101",
-                Content = "Lorem Lorem",
-                Img = "img address"
-            }
-        };
-            _nextId = 102;
+            _dbContext = dbContext;
         }
 
-        public List<PostDto> GetAll() => _posts;
+        public List<PostDto> GetAll() => _dbContext.Posts.ToList();
 
-        public PostDto Get(int id) => _posts.FirstOrDefault(p => p.PostId == id);
+        public PostDto Get(int id) => _dbContext.Posts.FirstOrDefault(p => p.PostId == id);
 
         public void Add(PostDto post)
         {
-            post.PostId = _nextId++;
-            _posts.Add(post);
+            _dbContext.Posts.Add(post);
+            _dbContext.SaveChanges();
         }
 
         public void Delete(int id)
@@ -45,7 +31,8 @@ namespace Blog.Application.Services
             if (post == null)
                 return;
 
-            _posts.Remove(post);
+            _dbContext.Posts.Remove(post);
+            _dbContext.SaveChanges();
         }
 
         public void Update(PostDto post)
@@ -57,7 +44,8 @@ namespace Blog.Application.Services
             existingPost.Title = post.Title;
             existingPost.Content = post.Content;
             existingPost.Img = post.Img;
+
+            _dbContext.SaveChanges();
         }
     }
-
 }

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Blog.Application.Services;
-using Blog.Web.Models;
 using Blog.DTOs;
 namespace Blog.Web.Controllers;
 

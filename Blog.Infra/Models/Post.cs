@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Blog.Web.Models;
+namespace Blog.Infra.Models;
 
 public class Post
 {

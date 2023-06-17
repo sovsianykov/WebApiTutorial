@@ -1,7 +1,6 @@
 ﻿using Xunit;
 using NSubstitute;
 using FluentAssertions;
-using Blog.Web.Models;
 using Blog.Application.Services;
 using System.Collections.Generic;
 using System.Linq;
@@ -107,7 +106,7 @@ namespace Blog.Tests.Services.Tests
         public void Add_ShouldIncreasePostCount()
         {
             // Arrange
-            var postService = new PostService();
+            var postService = Substitute.For<IPostService>();
             var initialCount = postService.GetAll().Count;
             var newPost = new PostDto
             {

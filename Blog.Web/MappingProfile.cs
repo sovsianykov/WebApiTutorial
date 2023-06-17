@@ -1,7 +1,7 @@
 ﻿using System;
 using AutoMapper;
 using Blog.DTOs;
-using Blog.Web.Models;
+using Blog.Infra.Models;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Blog.Web
