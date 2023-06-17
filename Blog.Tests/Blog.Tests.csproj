@@ -28,6 +28,7 @@
     <ProjectReference Include="..\apiTutorial\apiTutorial.csproj" />
     <ProjectReference Include="..\apiTutorial\Blog.Web.csproj" />
     <ProjectReference Include="..\Blog.Application\Blog.Application.csproj" />
+    <ProjectReference Include="..\Blog.DTOs\Blog.DTOs.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Services.Tests\" />
